@@ -1,0 +1,21 @@
+{
+  "name": "pao",
+  "homepage": "https://github.com/gamantha/pao",
+  "authors": [
+    "renowijoyo <renowijoyo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-date-dropdowns": "^1.0.0"
+  }
+}
