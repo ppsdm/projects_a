@@ -36,6 +36,9 @@ use common\modules\profile\models\ProfileMeta;
  */
 class SiteController extends \common\controllers\SiteController
 {
+
+    public $defaultAction = 'login';
+
     /**
      * @inheritdoc
      */
@@ -130,7 +133,7 @@ $session = Yii::$app->session;
             $session->set('useruri', $paouser->uri);
             */
 
-            return $this->goBack();
+            return $this->redirect(['site/index']);
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -415,3 +418,4 @@ $this->getView()->registerMetaTag(['property' => 'og:image', 'content' => 'http:
 
 
 }
+
