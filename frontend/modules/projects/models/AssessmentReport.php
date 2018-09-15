@@ -31,6 +31,10 @@ class AssessmentReport extends \yii\db\ActiveRecord
     public $saran_pengembangan;
     public $alamat;
     public $pendidikan_terakhir;
+	public $indikator;
+	public $integritas;
+	public $integritas_lki;
+	public $kerjasama;
 
 
 
@@ -46,6 +50,10 @@ class AssessmentReport extends \yii\db\ActiveRecord
             ['executive_summary', 'string', 'min' => 0],
             ['kekuatan', 'trim'],
             ['kekuatan', 'string', 'min' => 0],
+            ['integritas', 'trim'],
+            ['integritas', 'string', 'min' => 0],
+            ['kerjasama', 'trim'],
+            ['kerjasama', 'string', 'min' => 0],
             ['first_name', 'trim'],
             ['first_name', 'string', 'max' => 255],
             ['kelemahan', 'trim'],

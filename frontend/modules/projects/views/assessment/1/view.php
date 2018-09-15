@@ -36,11 +36,43 @@ use yii2tech\html2pdf\Manager;
 
 $this->title = $model->name;
 
+$Pa = ProjectAssessment::find()->andWhere(['activity_id'=> $_GET['id']])->One();
 
 echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Print'), ['pdf', 'id' => $model->id], ['class' => 'btn btn-info']).'</div>';
 echo '&nbsp;';
 echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Download PDF'), ['getfile', 'id' => $model->id], ['class' => 'btn btn-info']).'</div>';
-
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'SUBMIT ASSESSMENT'), ['', 'id' => $model->id], ['class' => 'btn btn-danger','data' => ['confirm'=> 'Yakin? tidak akan bisa kembali']]).'</div>';
+echo '<hr/>';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Data Assessee'), ['assessment/datapeserta', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Executive Summary'), ['assessment/exsum', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Psikogram'), ['assessment/psikogram', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Kekuatan'), ['assessment/kekuatan', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Kelemahan'), ['assessment/kelemahan', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Saran Pengembangan'), ['assessment/saran', 'id' => $Pa->id], ['class' => 'btn btn-info']).'</div>';
+echo '<h2>Aspek Kompetensi</h2>';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Integritas'), ['assessment/integritas', 'id' => $Pa->id, 'lki' => '1'], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Kerjasama'), ['assessment/kerjasama', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Komunikasi'), ['assessment/komunikasi', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Orientasi pada Hasil'), ['assessment/orientasihasil', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Pelayanan Publik'), ['assessment/pelayananpublik', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Pengembangan Diri dan Orang Lain'), ['assessment/pengembangandiridanoranglain', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Mengelola Perubahan'), ['assessment/mengelolaperubahan', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Pengambilan Keputusan'), ['assessment/pengambilankeputusan', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
+echo '&nbsp;';
+echo '<div style="display: inline-block;">'. Html::a(Yii::t('app', 'Perekat Bangsa'), ['assessment/perekatbangsa', 'id' => $Pa->id], ['class' => 'btn btn-primary']).'</div>';
     $proj_act = ProjectActivity::findOne($_GET['id']);
 
 
@@ -89,7 +121,7 @@ if (null !== $find_catalog) {
 } else {
     $catalog_id = null;
 }
-$Pa = ProjectAssessment::find()->andWhere(['activity_id'=> $_GET['id']])->One();
+
 
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Activities'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title .'(cat='.$catalog_id . ', assessment='. $Pa->id. ')';

@@ -209,12 +209,6 @@ $colorPluginOptions =  [
 
 
 $psikogramGridColumns = [
-/*[
-  'label' => 'order',
-  'attribute' => 'order',
-   'value' => 'order',
-],
-*/
 [
         'class'=>'kartik\grid\EditableColumn',
             'contentOptions' => ['style' => 'max-width:0px;'],
@@ -262,19 +256,7 @@ $psikogramGridColumns = [
     'contentOptions' => ['style'=>'width:350px; white-space: normal;'],
 
   ],
- /* [
-    'label' => 'Keterangan',
-    'value' => function($data) use ($catalog_id) {
-      $lkj = CatalogMeta::find()
-      ->andWhere(['catalog_id' => $catalog_id])
-        ->andWhere(['type' => 'kompetensigram'])
-        ->andWhere(['key' => 'kompetensi'])
-        ->andWhere(['value' => $data->key])->One();
-      return $lkj->attribute_1;
-    },
-    'pageSummary' => true,
-  ],
-*/
+
       [
         'label' => 'Skor',
            'pageSummary' => true,
@@ -578,109 +560,7 @@ $kompetensiGridColumns2 = [
     },
     'pageSummary' => true,
   ],
-  /*
-  [
-    'class'=>'kartik\grid\EditableColumn',
-    'label' => 'LKI',
-    //'model' => $model,
-    'attribute'=>'value',
-    'format' => 'raw',
-    'pageSummary' => true,
-    'readonly'=> $readonly,
-    'value' => function($data) use ($catalog_id){
 
-      $assessmentmodel = ProjectAssessment::find()
-      ->andWhere(['activity_id' => $_GET['id']])
-        ->andWhere(['status' => 'active'])->One();
-        $resultmodel = Kompetensigram::find()
-                ->andWhere(['project_assessment_id' => $assessmentmodel->id])
-                ->andWhere(['type' => 'kompetensigram'])
-                ->andWhere(['key' => $data['key']])->One();
-
-                  return $resultmodel->value;
-    },
-  
-    'vAlign'=>'middle',
-    'width'=>'100px',
-
-    'editableOptions'=> function ($model, $key, $index) use ($colorPluginOptions ,$catalog_id) {
-
-            $lkj = CatalogMeta::find()
-      ->andWhere(['catalog_id' => $catalog_id])
-        ->andWhere(['type' => 'kompetensigram'])
-        ->andWhere(['key' => 'kompetensi'])
-        ->andWhere(['value' => $model['key']])->One();
-        
-
-        $selections = [];
-      //for ($i = 1; $i <= $lkj->attribute_1; $i++){
-for ($i = 1; $i <= 4; $i++){
-        $selections[$i] = $i;
-      }
-        return [
-          'formOptions'=>['action' => ['/projects/activity/editkompetensigram'],
-                  'id' => 'kompetensigram_' . $model['key'] .   '_form_name',
-          ], // point to the new action
-            'header'=>'LKI', 
-            'size'=>'md',
-            'placement' => 'left',
-            'contentOptions' => [
-                  'id' => $model['key'] . '_' . $index,   ],
-            'inputType'=>\kartik\editable\Editable::INPUT_DROPDOWN_LIST,
-             'data' => $selections,
-
-
-            'options'=>[
-                    'id' => 'kompetensigram_' . $model['key'] . '_form_name',
-                    //'html5Options' => ['min' => 1, 'max' => 4],
-            ],
-
-        'beforeInput' => function ($form, $widget) use ($model, $index) {
-
-                echo 'Masukkan rating';
-        },
-
-
-            'afterInput'=>function ($form, $widget) use ($model, $index, $colorPluginOptions, $catalog_id) {
-
-            $lkj = CatalogMeta::find()
-      ->andWhere(['catalog_id' => $catalog_id])
-        ->andWhere(['type' => 'kompetensigram'])
-        ->andWhere(['key' => 'kompetensi'])
-        ->andWhere(['value' => $model['key']])->One();
-        
-return 'min = 1, max = 4';
-            }
-            
-        ];
-    }
-],
-*/
-/*
-    [
-        'class' => '\kartik\grid\FormulaColumn',
-        'label' => 'Gap',
-           'pageSummary' => true,
-        'value' => function ($model, $key, $index, $widget) {
-            $p = compact('model', 'key', 'index');
-            // Write your formula below
-            return -1 * ($widget->col(2, $p) - $widget->col(3, $p));
-        }
-    ],
-
-    [
-        'class' => '\kartik\grid\FormulaColumn',
-        'pageSummary' => true,
-          'pageSummaryFunc' => GridView::F_AVG,
-        'label' => 'Pct (%)',
-        'value' => function ($model, $key, $index, $widget) {
-            $p = compact('model', 'key', 'index');
-            // Write your formula below
-            return round($widget->col(3, $p) / $widget->col(2, $p) * 100,2);
-  //return round((($resultmodel->value / $lkj->attribute_1)  * 100),2);
-        }
-    ],
-*/
 
 ]; 
 
@@ -974,28 +854,16 @@ echo $form->field($assessment_report, 'executive_summary')->widget(\yii\redactor
 <hr/> 
 
 <?php
-/*echo GridView::widget([
-    'dataProvider'=> $psikogramSQLDataProvider,
-    'filterModel' => $psikogramSearchModel,
-    'columns' => $psikogramGridColumns2,
-    'responsive'=>true,
-        'pjax'=>true, // pjax is set to always true for this demo
-    'hover'=>true,
-    'showPageSummary' => true,
-    'summary'=>'', 
-]);
-*/
+echo Yii::$app->controller->renderPartial('../assessment/1/_psikogram', [
 
-echo GridView::widget([
-    'dataProvider'=> $psikogramDataProvider,
-    'filterModel' => $psikogramSearchModel,
-    'columns' => $psikogramGridColumns,
-    'responsive'=>true,
-        'pjax'=>true, // pjax is set to always true for this demo
-    'hover'=>true,
-    'showPageSummary' => true,
-    'summary'=>'', 
+
+    'psikogramDataProvider'=> $psikogramDataProvider,
+    'psikogramSearchModel' => $psikogramSearchModel,
+    'psikogramGridColumns' => $psikogramGridColumns,
+
 ]);
+
+
 
 ?>
 <hr/>

@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+	//'defaultRoute' => 'Site/login',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log',
       'common\config\settings',
@@ -89,7 +90,11 @@ return [
         'allowedIPs' => ['*'],
     ],
 */
-
+    'gii' => [
+        'class' => 'yii\gii\Module',
+		 'allowedIPs' => ['*'],
+        //'allowedIPs' => ['127.0.0.1', '::1', '192.168.1.*', 'XXX.XXX.XXX.XXX'] // adjust this to your needs
+    ],
 
     ],
 
@@ -143,10 +148,12 @@ return [
 
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
+				 //'allowedIPs' => ['*'],
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+				
                 ],
             ],
         ],

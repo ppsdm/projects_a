@@ -69,7 +69,7 @@ NotificationsWidget::widget([
       //  ['label' => 'About', 'url' => ['/site/about']],
       //  ['label' => 'Contact', 'url' => ['/site/contact']],
        //'linkOptions' => ['style' => 'background-color: #F86D18;color: #ffffff;']]
-      
+
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -100,7 +100,7 @@ NotificationsWidget::widget([
     <ul class="dropdown-menu" style="width:215px;">
         <li class="dropdown-header">
         <a href=""></a><B>'.
-Html::a(Yii::t('app', 'You have <span class="notifications-header-count">0</span> notifications'), ['/message/index'], ['class'=>'']) 
+Html::a(Yii::t('app', 'You have <span class="notifications-header-count">0</span> notifications'), ['/message/index'], ['class'=>''])
 .'</B>
         </li>
         <li>

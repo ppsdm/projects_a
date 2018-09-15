@@ -15,8 +15,8 @@ $tanggal_test = $objectPrint['tanggal_test'];
 //echo $tanggal_test.'nirwan';
 
 $day = substr($tanggal_test, 0,2);
-$month = substr($tanggal_test, 2,2);	
-$year = substr($tanggal_test, 4,4);	
+$month = substr($tanggal_test, 2,2);
+$year = substr($tanggal_test, 4,4);
 $date_test = $day.'-'.$month.'-'.$year;
 $newDate = str_replace($monthE, $bulan, date("j F Y", strtotime($date_test)+'21 days'));
 
@@ -65,7 +65,7 @@ $pagebreak = $footerReport.'</b></p></article>
 
   <!-- Load paper.css for happy printing  -->
   <link rel="stylesheet" type="text/css"href="<?=Url::to('@web/css/paper.css');?>">
- 
+
   <link rel="stylesheet" type="text/css" href="<?=Url::to('@web/css/psikogramTable.css');?>">
 
   <!-- Set page size here: A5, A4 or A3 -->
@@ -73,8 +73,8 @@ $pagebreak = $footerReport.'</b></p></article>
 
   <script src="<?=Url::to('@web/js/d3.min.js');?>" charset="utf-8"></script>
 
-  
-  
+
+
 </head>
 
 <body class="A4">
@@ -82,10 +82,10 @@ $pagebreak = $footerReport.'</b></p></article>
   <!-- Each sheet element should have the class "sheet" -->
   <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
   <section class="sheet padding-0mm">
-  <div style= "width: 210mm; height: 296mm; margin:0; background-image: url('<?=Url::base();?>/images/1/coverlaporan.png'); 
+  <div style= "width: 210mm; height: 296mm; margin:0; background-image: url('<?=Url::base();?>/images/1/coverlaporan.png');
  background-position: center; background-repeat: no-repeat;background-size: 210mm 296mm" >
 <article>
-   
+
 
  </div>
  <div style="font-size: 18pt;position:absolute; left: 250px; top: 500px;"><b><?=$objectPrint['firstname']; ?></b></div>
@@ -115,7 +115,7 @@ KEMENTERIAN KESEHATAN REPUBLIK INDONESIA 2017</h3>
 
 <br/>
 
-<div style="font-size: 18pt;position:absolute; right: 95px; top: 290px;">
+<div style="font-size: 18pt;position:absolute; right: 95px; top: 305px;">
 <?=Html::img('@web/project-uploads/1/photos/'.$objectPrint['profile_id'].'.jpg', ['alt' => '--missing image--','style'=> 'max-width:150px;max-height:150px' ]);?>
 </div>
 <?php
@@ -124,9 +124,9 @@ KEMENTERIAN KESEHATAN REPUBLIK INDONESIA 2017</h3>
 $nomor_test = $objectPrint['nomor_test'];
 
 $day1 = substr($tanggal_test, 0,2);
-$month1 = substr($tanggal_test, 3,2);	
-$year1 = substr($tanggal_test, 6,2);	
-$year2 = substr($tanggal_test, 4,4);	
+$month1 = substr($tanggal_test, 3,2);
+$year1 = substr($tanggal_test, 6,2);
+$year2 = substr($tanggal_test, 4,4);
 $tanggaltest=  $day1.$month1.$year1;
 ?>
 
@@ -231,26 +231,26 @@ $htmlesc   = array('<p>','');
 <div class='center'>
 <h3>DIAGRAM KOMPETENSI</H3>
 
- <div class="radarChart" style=" background-image: url('<?=Url::base();?>/images/1/<?=$objectPrint['catalog_id'];?>.png'); 
+ <div class="radarChart" style=" background-image: url('<?=Url::base();?>/images/1/<?=$objectPrint['catalog_id'];?>.png');
  background-position: center; background-repeat: no-repeat;background-size: 400px 420px;"></div>
  <script src="<?=Url::to('@web/js/radarChart.js');?>"></script>
 
- 
+
 		<script>
-      
+
       /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
-      
-			////////////////////////////////////////////////////////////// 
-			//////////////////////// Set-Up ////////////////////////////// 
-			////////////////////////////////////////////////////////////// 
+
+			//////////////////////////////////////////////////////////////
+			//////////////////////// Set-Up //////////////////////////////
+			//////////////////////////////////////////////////////////////
 
 			var margin = {top: 10, right: 50, bottom: 35, left: 50},
 				width = Math.min(500, window.innerWidth - 10) - margin.left - margin.right,
 				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-					
-			////////////////////////////////////////////////////////////// 
-			////////////////////////// Data ////////////////////////////// 
-			////////////////////////////////////////////////////////////// 
+
+			//////////////////////////////////////////////////////////////
+			////////////////////////// Data //////////////////////////////
+			//////////////////////////////////////////////////////////////
 			var data = [
 				[
 			<?php foreach ($objectPrint as $key => $value) {
@@ -274,13 +274,13 @@ $htmlesc   = array('<p>','');
 				]
 			  ];
 
-			////////////////////////////////////////////////////////////// 
-			//////////////////// Draw the Chart ////////////////////////// 
-			////////////////////////////////////////////////////////////// 
+			//////////////////////////////////////////////////////////////
+			//////////////////// Draw the Chart //////////////////////////
+			//////////////////////////////////////////////////////////////
 
 			var color = d3.scale.ordinal()
 			.range(['#AEDFFB','#35274E']);
-			
+
 			var radarChartOptions = {
 			w: width,
 			h: height,
@@ -292,7 +292,7 @@ $htmlesc   = array('<p>','');
 			opacityArea: 0.5,
 			opacityCircles: 0,
 			dotRadius: 3,
-			strokeWidth: 2, 
+			strokeWidth: 2,
 			wrapWidth: 10,
 			labelFactor: 10,
 			};
@@ -549,7 +549,7 @@ else {
 	   &nbsp;</td>
 	   <td class="psikogramtable9" >1</td>
 	   <td class="psikogramtable10" colspan="3">
-	   
+
 	   <?=$objectPrint['psikogram'][$objectPrint['psikogramSQLDataProvider'][0]['key']]['attribute_1'];?></td>
 	   <td class="psikogramtable11" colspan="6" >
 	   <?=$objectPrint['psikogram'][$objectPrint['psikogramSQLDataProvider'][0]['key']]['attribute_2'];?></td>
@@ -852,14 +852,14 @@ else {
         ]);
 
         var options = {
-         
+
           hAxis: {
               //title: 'Potensi', minValue: 0, maxValue: 100,
               gridlines:{color: '#eee', count: 7},
 			  ticks: [0, 20, 40, 60, 80, 100, 120, 140, ]
               },
           vAxis: {
-             // title: 'Kompetensi', minValue: 0, maxValue: 100, 
+             // title: 'Kompetensi', minValue: 0, maxValue: 100,
              gridlines:{color: '#eee', count: 7},
 			 ticks: [0, 20, 40, 60,  80,100, 120, 140, ]
              },
@@ -873,7 +873,7 @@ else {
 
         chart.draw(data, options);
       }
-    </script>  	
+    </script>
 <table class="center">
 <tr>
 <td align="left">
@@ -896,17 +896,17 @@ else {
 
 </td>
 <td>
-<div id="chart_div" 
-    style="width: 600px; height: 600px; 
-    background-image: url('<?=Url::base()?>/images/ninecell.png'); 
+<div id="chart_div"
+    style="width: 600px; height: 600px;
+    background-image: url('<?=Url::base()?>/images/ninecell.png');
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
     ">
     </div>
  </td></tr>
  <tr>
  <td>
- 
+
 <div style= "margin:10px;">
 <table style="width: 100%; margin-left: auto; margin-right: auto;" border="1" cellspacing="1" cellpadding="1">
 <tbody>
@@ -914,7 +914,7 @@ else {
 <td bgcolor="yellow">X</td>
 <td bgcolor="yellow"><?=$sumbuX;?>%</td>
 <td rowspan="2"><h2>
-<?php 
+<?php
 if ($sumbuX < 75 && $sumbuY < 75) {$ninecellScore = 1;}
 else if ($sumbuX < 75 && $sumbuY < 100 && $sumbuY > 74 && $sumbuY < 100) {$ninecellScore = 2;}
 else if ($sumbuX >= 75 && $sumbuX < 100 && $sumbuY < 75) {$ninecellScore = 3;}
@@ -957,7 +957,7 @@ else {
 </td>
 
 
- </table>  
+ </table>
  <?=$footerReport;?>
  </article>
  </section>
@@ -969,7 +969,7 @@ else {
  <hr></div>
  <img style="position:absolute; right: 100px; top: 68px;" src="<?=Url::base();?>/images/ppsdm-logo-atas.png">
  <article>
- 
+
  <h3> HASIL ASESSMENT BERDASARKAN KOMPETENSI </H3>
 
  <hr style='border-top: 3px double;'>
@@ -985,7 +985,7 @@ foreach ($objectPrint as $key => $value) {
 if ($key == 'kompetensigram') {
 	//echo count($value);
 
-$kompetensigenerik = array_splice($value, 0, 2);	
+$kompetensigenerik = array_splice($value, 0, 2);
 foreach ($kompetensigenerik as $key2 => $value2) {
 ?>
 
@@ -1036,7 +1036,7 @@ foreach ($objectPrint as $key => $value) {
 if ($key == 'kompetensigram') {
 	//echo count($value);
 
-$kompetensigenerik = array_splice($value, 2, 2);	
+$kompetensigenerik = array_splice($value, 2, 2);
 foreach ($kompetensigenerik as $key2 => $value2) {
 ?>
 
@@ -1093,7 +1093,7 @@ foreach ($objectPrint as $key => $value) {
 if ($key == 'kompetensigram') {
 	//echo count($value);
 
-$kompetensispesifik = array_splice($value, 4, 2);	
+$kompetensispesifik = array_splice($value, 4, 2);
 foreach ($kompetensispesifik as $key2 => $value2) {
 ?>
 
@@ -1143,7 +1143,7 @@ foreach ($objectPrint as $key => $value) {
 if ($key == 'kompetensigram') {
 	//echo count($value);
 
-$kompetensispesifik = array_splice($value, 6, 2);	
+$kompetensispesifik = array_splice($value, 6, 2);
 foreach ($kompetensispesifik as $key2 => $value2) {
 ?>
 
@@ -1193,7 +1193,7 @@ foreach ($objectPrint as $key => $value) {
 if ($key == 'kompetensigram') {
 	//echo count($value);
 
-$kompetensispesifik = array_splice($value, 8, 2);	
+$kompetensispesifik = array_splice($value, 8, 2);
 foreach ($kompetensispesifik as $key2 => $value2) {
 ?>
 

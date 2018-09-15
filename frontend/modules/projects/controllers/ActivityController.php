@@ -406,14 +406,7 @@ and table1.key = catalog_meta.value) as table2 ORDER BY table2.type, table2.orde
     //'totalCount' => $count,
     'sort' => [
         'attributes' => [
-           // 'age',
-            /*'name' => [
-                'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
-                'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
-                'default' => SORT_DESC,
-                'label' => 'Name',
-            ],
-            */
+
         ],
     ],
     'pagination' => [
@@ -442,14 +435,7 @@ and table1.key = catalog_meta.value) as table2 ORDER BY table2.type, table2.orde
     //'totalCount' => $count,
     'sort' => [
         'attributes' => [
-           // 'age',
-            /*'name' => [
-                'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
-                'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
-                'default' => SORT_DESC,
-                'label' => 'Name',
-            ],
-            */
+
         ],
     ],
     'pagination' => [
@@ -548,10 +534,7 @@ $result_object['psikogram'][$psivalue['key']]['attribute_2'] = $refdict->attribu
 
 }
 
-//echo '<pre>';
-//print_r($result_object);
 
-//print_r($psikogram_models);
 
 
         }
