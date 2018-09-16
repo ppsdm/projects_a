@@ -21,6 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' => function ($model, $key, $index, $grid) {
+            return ['data-id' => $model->id];
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -52,3 +55,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>
+<?php
+$this->registerJs("
+
+    $('td').hover(function() {
+        $(this).css('cursor','pointer');
+    }).click(function (e) {
+        var id = $(this).closest('tr').data('id');
+        if(e.target == this)
+            location.href = 'http://projects.ppsdm.com/index.php/setkab-activity/view?id=' + id;
+    });
+
+");
+?>
