@@ -169,7 +169,11 @@ class SetkabActivity extends \yii\db\ActiveRecord
 return $this->hasOne(SetkabAssessee::className(), ['id' => 'assessee_id']);
  }
  
-  
+  	public function getAssessor()
+ {
+return $this->hasOne(Profile::className(), ['id' => 'assessor_id']);
+ }
+ 
  		public function getIndikatorarray() 
 { 
    return json_decode($this->integritas_indikator); 

@@ -45,49 +45,123 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
 
 
-<p> <h3>Aspek Intelektual</h3>
-<?= $form->field($model, 'psikogram_inteligensiumum')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']        ,
+<h3>Aspek Intelektual</h3>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>    
+        <tr>
+            <th>Aspek Psikologis</th>
+            <th>Keterangan</th>
+            <th width="20%">Penilaian</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Inteligensi umum</td>
+            <td>Gabungan keseluruhan potensi kecerdasan sebagai perpaduan dari aspek-aspek pembentukan intelektualitas</td>
+            <td><?= $form->field($model, 'psikogram_inteligensiumum')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Berpikir Analitis</td>
+            <td>Kemampuan menguraikan masalah & melihat kaitan antara satu hal dg hal lainnya hingga menemukan kesimpulan</td>
+            <td><?= $form->field($model, 'psikogram_berpikiranalitis')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Logika berpikir</td>
+            <td>Kemampuan untuk mengorganisir proses berpikir yang menunjukkan adanya alur berpikir yang sistematis dan logis   </td>
+            <td><?= $form->field($model, 'psikogram_logikaberpikir')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Fleksibilitas berpikir</td>
+            <td></td>
+            <td><?= $form->field($model, 'psikogram_fleksibilitasberpikir')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Kemampuan belajar</td>
+            <td>Kemampuan menguasai dan meningkatkan pengetahuan dan ketrampilan kerja yang baru maupun yang telah dimiliki </td>
+            <td><?= $form->field($model, 'psikogram_kemampuanbelajar')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+    </tbody>
+</table>
 
-                            [
-                                /*'item' => function($index, $label, $name, $checked, $value) {
-								
-                                    $return = '<label class="modal-radio">';
-                                    $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" tabindex="3">';
-                                    $return .= '<i></i>';
-                                    $return .= '<span>' . ucwords($label) . '</span>';
-                                    $return .= '</label>';
-
-                                    return $return;
-                                }
-								*/
-                            ]
-
-
-); ?>
-<?= $form->field($model, 'psikogram_berpikiranalitis')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_logikaberpikir')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_fleksibilitasberpikir')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_kemampuanbelajar')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-</p>
 <hr/>
-<p>
 
-<h3>Aspek Sikap Kerja</h3>
-<?= $form->field($model, 'psikogram_sistematikakerja')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_tempokerja')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_ketelitian')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_ketekunan')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_komunikasiefektif')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-</p>
+pek Sikap Kerja</h3>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Aspek Psikologis</th>
+            <th>Keterangan</th>
+            <th width="20%">Penilaian</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Sistematika Kerja</td>
+            <td>Kemampuan dan ketrampilan menyelesaikan suatu tugas secara runut, proporsional, sesuai dengan skala prioritas tertentu  </td>
+            <td><?= $form->field($model, 'psikogram_sistematikakerja')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Tempo Kerja</td>
+            <td>Kecepatan dan kecekatan kerja, yang menunjukkan kemampuan menyelesaikan sejumlah tugas dalam batas waktu tertentu</td>
+            <td><?= $form->field($model, 'psikogram_tempokerja')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Ketelitian</td>
+            <td>Kemampuan bekerja dengan sesedikit mungkin melakukan kesalahan atau kekeliruan  </td>
+            <td><?= $form->field($model, 'psikogram_ketelitian')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Ketekunan</td>
+            <td>Daya tahan menghadapi dan menyelesaikan tugas sampai tuntas dalam waktu relatif lama dengan mencapai hasil yang optimal</td>
+            <td><?= $form->field($model, 'psikogram_ketekunan')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Komunikasi Efektif</td>
+            <td>Kemampuan menyampaikan pendapat secara lancar, sehingga pendengar paham dan bersedia mengikuti pendapatnya</td>
+            <td><?= $form->field($model, 'psikogram_komunikasiefektif')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+    </tbody>
+</table>
+
 <hr/>
-<p>
+
 <h3>Aspek Kepribadian</h3>
-<?= $form->field($model, 'psikogram_motivasi')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_konsepdiri')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_empati')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_pemahamansosial')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-<?= $form->field($model, 'psikogram_pengaturandiri')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5']); ?>
-</p>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Aspek Psikologis</th>
+            <th>Keterangan</th>
+            <th width="20%">Penilaian</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Motivasi</td>
+            <td>Keinginan meningkatkan hasil kerja dan selalu berfokus pada profit opportunities</td>
+            <td><?= $form->field($model, 'psikogram_motivasi')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Konsep Diri</td>
+            <td>Pemahaman atas kelebihan dan kekurangan diri sendiri</td>
+            <td><?= $form->field($model, 'psikogram_konsepdiri')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Empati</td>
+            <td>Kemampuan memahami dan merasakan adanya permasalahan dan kondisi emosional orang lain   </td>
+            <td><?= $form->field($model, 'psikogram_empati')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Pemahaman Sosial</td>
+            <td>Kemampuan bereaksi dengan cepat terhadap kebutuhan orang lain atau tuntutan lingkungan, serta memahami norma sosial yang berlaku.   </td>
+            <td><?= $form->field($model, 'psikogram_pemahamansosial')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+        <tr>
+            <td>Pengaturan Diri</td>
+            <td>Kemampuan mengendalikan diri dalam situasi-situasi sulit dan kemampuan melakukan perencanaan sebelum bertindak.</td>
+            <td><?= $form->field($model, 'psikogram_pengaturandiri')->radioList([0=>'0',1=>'1',2=>'2',3=>'3',4=>'4',5=>'5'])->label(false); ?></td>
+        </tr>
+    </tbody>
+</table>
 
 <?php
 /*

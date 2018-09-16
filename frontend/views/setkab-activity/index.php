@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Setkab Activity'), ['create'], ['class' => 'btn btn-success']) ?>
+		<?php
+		//echo Html::a(Yii::t('app', 'Create Setkab Activity'), ['create'], ['class' => 'btn btn-success']);
+		?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -27,14 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'assessee_id',
+            //'id',
+            //'assessee_id',
 			[
-				'label' => 'Nama',
+				'label' => 'Nama Lengkap',
+				'format' => 'raw',
 				           'content'=>function($data){
 							   //$setkab_assessment = SetkabAssessment::find()->andWhere(['activity_id' => $data->id])->One();
-               // return $data->assessee->nama_lengkap;
-			   return 'nama';
+                return $data->assessee->nama_lengkap;
+				//        return Html::a(Yii::t('app', $data->id), ['view', 'id' => $data->id], ['class' => '']);
             }
 			],
 			
@@ -42,8 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
 				'label' => 'Assessor',
 				           'content'=>function($data){
 							   //$setkab_assessment = SetkabAssessment::find()->andWhere(['activity_id' => $data->id])->One();
-                //return $data->assessor->first_name;
-				return 'nama asesor';
+							  $nama = '';
+                if (isset($data->assessor->first_name)) {
+					$nama = $data->assessor->first_name;;
+				} else {
+					$nama = '';
+				}
+				return $nama;
             }
 			],
           //  'second_opinion_id',
@@ -51,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'tempat_test',
             // 'tujuan_pemeriksaan',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

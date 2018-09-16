@@ -40,12 +40,21 @@ class SetkabActivityController extends Controller
     public function actionIndex()
     {
         $searchModel = new SetkabActivitySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$params = Yii::$app->request->queryParams;
+		$params['SetkabActivitySearch']['assessor_id'] = '127';
+        $dataProvider = $searchModel->search($params);
 
+	
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+		
+		
+		//echo Yii::$app->user->id;
+		//echo '<pre>';
+		//print_r($params);
+		
     }
 
     /**
@@ -141,7 +150,38 @@ class SetkabActivityController extends Controller
 
 
 
+	public function actionSubmit($id)
+	{
+        echo 'validasi data laporan. kalua belum maka ditolak';
+		
+		$limit_kompetensi = 500;
+		$limit_kelemahan = 300;
+		$limit_kekuatan = 300;
+		$limit_saran = 300;
+		$limit_exsum = 1000;
+        //cek jumlah karakter tiap uraian
+        $model = $this->findModel($id);
+        echo $integritas_uraian = str_word_count(strip_tags($model->integritas_uraian));
+        echo $kerjasama_uraian = str_word_count(strip_tags($model->kerjasama_uraian));
+        echo $komunikasi_uraian = str_word_count(strip_tags($model->komunikasi_uraian));
+        echo $integritas_uraian = str_word_count(strip_tags($model->integritas_uraian));
+        echo $orientasihasil_uraian = str_word_count(strip_tags($model->orientasihasil_uraian));
+        echo $pelayananpublik_uraian = str_word_count(strip_tags($model->pelayananpublik_uraian));
+        echo $pengembangandiri_uraian = str_word_count(strip_tags($model->pengembangandiri_uraian));
+        echo $pengelolaanperubahan_uraian = str_word_count(strip_tags($model->pengelolaanperubahan_uraian));
+        echo $pengambilankeputusan_uraian = str_word_count(strip_tags($model->pengambilankeputusan_uraian));
+        echo $perekatbangsa_uraian = str_word_count(strip_tags($model->perekatbangsa_uraian));
+        echo $kekuatan = str_word_count(strip_tags($model->kekuatan));
+        echo $kelemahan = str_word_count(strip_tags($model->kelemahan));
+        echo $exsum = str_word_count(strip_tags($model->executive_summary));
+        echo $saran = str_word_count(strip_tags($model->saran));
 
+	
+
+
+
+	}
+	
 
 
 

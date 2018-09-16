@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-<h3></h3>
+<h3>Uraian</h3>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -56,15 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
 
             ],
-            [
-                'label' => 'Psikogram',
-                'format' => 'raw',
-                'value' => function($data)
-                {
-                    return Html::a(Yii::t('app', 'Edit'), ['psikogram', 'id' => $data->id], ['class' => 'btn btn-primary']);
-                }
 
-            ],
             [
                 'label' => 'Kekuatan',
                 'format' => 'raw',
@@ -99,6 +91,22 @@ $this->params['breadcrumbs'][] = $this->title;
     //        'tujuan_pemeriksaan',
         ],
     ]) ?>
+<h3>Aspek Potensi</h3>
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            [
+                'label' => 'Psikogram',
+                'format' => 'raw',
+                'value' => function($data)
+                {
+                    return Html::a(Yii::t('app', 'Edit'), ['psikogram', 'id' => $data->id], ['class' => 'btn btn-primary']);
+                }
+
+            ],
+
+        ],
+    ]) ?>
 
 <h3>Aspek Kompetensi</h3>
     <?= DetailView::widget([
@@ -111,7 +119,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($data)
                 {
                     //check kalau textnya jumlah nya cukup
-                    return Html::a(Yii::t('app', 'Edit'), ['integritas', 'id' => $data->id], ['class' => 'btn btn-primary']);
+					
+					$words = str_word_count(strip_tags($data->integritas_uraian));
+					$characters = strlen(str_replace(' ','',strip_tags($data->integritas_uraian)));
+					
+					$btn_class = 'btn btn-primary';
+					
+                    return Html::a(Yii::t('app', 'Edit'), ['integritas', 'id' => $data->id], ['class' => $btn_class]) . ' words = ' . $words;
                 }
 
             ],
@@ -179,9 +193,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a(Yii::t('app', 'Edit'), ['perekatbangsa', 'id' => $data->id], ['class' => 'btn btn-primary']);
                 }
             ],
-            'tanggal_test',
-            'tempat_test',
-            'tujuan_pemeriksaan',
+            //'tanggal_test',
+            //'tempat_test',
+            //'tujuan_pemeriksaan',
         ],
     ]) ?>
 
