@@ -33,7 +33,7 @@ $indikator = [
 $daftar_lki =  ['0' => '0','1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'];
 //$daftar_lki = ArrayHelper::map($indikators, 'value', 'textvalue');
 echo    $form->field($model, 'integritas_lki')->dropDownList($daftar_lki, ['prompt' => 'select...']);
-echo Html::submitButton(Yii::t('app', 'Simpan LKI & update daftar indikator'), ['class' =>'btn btn-primary', 'value' => 'refresh', 'name'=>'submit2']);
+echo Html::submitButton(Yii::t('app', 'Simpan LKI'), ['class' =>'btn btn-primary', 'value' => 'refresh', 'name'=>'submit2']);
 echo '<hr/>';
 //echo Html::a('Profile', ['', 'id' => $model->id], ['class' => 'btn btn-primary']);
 echo '<p>';
@@ -41,9 +41,21 @@ echo '<p>';
 				echo '</p>';
 				echo Html::activeCheckboxList($model, 'indikatorarray', ArrayHelper::map($indikators, 'value', 'textvalue'));
 				
-				echo '<hr/>';
+                                echo Html::submitButton(Yii::t('app', 'Udate Daftar Indikator'), ['class' =>'btn btn-primary', 'value' => 'refresh', 'name'=>'submit2']);
+                                echo '<hr/>';
 				echo '<p>';
-				$uraian_kamus = 'masuih kosong. mau diisi apa ya?';
+
+				$uraian_kamus = "";
+
+				$activeIndikators = explode(',', str_replace(['[', ']', '"'], '', $model->integritas_indikator));
+				foreach($activeIndikators as $activeIndikator) {
+					foreach($indikators as $indikator) {
+						if ($indikator['value'] == $activeIndikator) {
+							$uraian_kamus .= $indikator['textvalue'] . "\n";
+						}
+					}
+				}
+
 				echo Html::label('Uraian Kamus', 'uraian_kamus');
 				echo '</p>';
 echo '<p>';
@@ -67,7 +79,7 @@ echo $hint_text = 'words : ' . str_word_count(strip_tags($model->integritas_urai
 ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'value' => 'update', 'name' => 'submit2']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Simpan Uraian') : Yii::t('app', 'Update Uraian'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'value' => 'update', 'name' => 'submit2']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
