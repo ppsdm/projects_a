@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 use yii\helpers\Html;
@@ -863,4 +864,871 @@ echo GridView::widget([
 ]);
 
 
+=======
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+use yii\web\View;
+use app\assets\AppAsset;
+
+use app\modules\projects\models\Project;
+use app\modules\projects\models\ProjectMeta;
+use app\modules\projects\models\ProjectActivity;
+use app\modules\projects\models\ProjectAssessmentResult;
+use app\modules\projects\models\ProjectAssessment;
+use app\modules\projects\models\ProjectActivityMeta;
+use common\modules\profile\models\ProfileMeta;
+use common\modules\profile\models\Profile;
+use common\modules\catalog\models\RefAssessmentDictionary;
+use common\modules\catalog\models\CatalogMeta;
+use common\modules\catalog\models\Catalog;
+
+use kartik\grid\GridView;
+use kartik\form\ActiveForm;
+
+?>
+
+
+
+<head>
+<link rel="stylesheet" type="text/css" href="/css/psikogramTable.css">
+</head>
+
+<h3 align="center">PSIKOGRAM POTENSI</h3>
+<hr/> 
+
+
+ 
+
+
+<table align="center" border="3" cellpadding="0" cellspacing="0" style="border-collapse:
+ collapse;width:639pt" width="60%">
+	<colgroup>
+		<col span="1"><col span="3" style="width:48pt" width="64">
+		<col style="mso-width-source:userset;mso-width-alt:2194;width:45pt" width="60">
+		<col span="5" style="width:48pt" width="64">
+		<col style="mso-width-source:userset;mso-width-alt:438;width:9pt" width="12">
+		<col style="mso-width-source:userset;mso-width-alt:1170;width:24pt" width="32">
+		<col style="mso-width-source:userset;mso-width-alt:1024;width:21pt" width="28">
+		<col style="mso-width-source:userset;mso-width-alt:1170;width:24pt" width="32">
+		<col style="mso-width-source:userset;mso-width-alt:1206;width:25pt" width="33">
+		<col style="mso-width-source:userset;mso-width-alt:877;width:18pt" width="24">
+		<col style="mso-width-source:userset;mso-width-alt:804;width:17pt" width="22">
+		<col style="mso-width-source:userset;mso-width-alt:1170;width:24pt" width="32">
+	</colgroup>
+	<tr>
+		<td class="auto-style1" colspan="5" rowspan="2" style="width: 237pt" width="316">
+		ASPEK PSIKOLOGIS</td>
+		<td class="auto-style2" colspan="6" rowspan="2" style="width: 249pt" width="332">
+		KETERANGAN</td>
+		<td class="auto-style3" colspan="7" style="width: 153pt" width="203">P E 
+		N I L A I A N</td>
+	</tr>
+	<tr height="21" style="height:15.75pt">
+		<td class="auto-style4" style="height: 16pt">1</td>
+		<td class="auto-style4" style="height: 16pt">2</td>
+		<td class="auto-style4" style="height: 16pt">3</td>
+		<td class="auto-style4" style="height: 16pt">4</td>
+		<td class="auto-style4" style="height: 16pt">5</td>
+		<td class="auto-style4" style="height: 16pt">6</td>
+		<td class="auto-style5" style="height: 16pt">7</td>
+	</tr>
+	<tr height="21" style="mso-height-source:userset;height:15.75pt">
+		<td class="auto-style6" height="41" style="height: 30.75pt; width: 25px;">
+		A</td>
+		<td class="auto-style7" colspan="17">ASPEK INTELEKTUAL</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style8" height="201" rowspan="5" style="height: 150.75pt; width: 25px;">
+		&nbsp;</td>
+		<td class="auto-style9" style="width: 19pt">1</td>
+		<td class="auto-style10" colspan="3">Inteligensi Umum</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Gabungan keseluruhan potensi kecerdasan sebagai perpaduan dari 
+		aspek-aspek pembentukan intelektualitas</td>
+		<td class="auto-style12"><?= Html::radio('1', true);?></td>
+		<td class="auto-style12"><?= Html::radio('2');?></td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		2</td>
+		<td class="auto-style10" colspan="3">Berpikir Analitis</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan menguraikan masalah menjadi bagian-bagian dan menemukan 
+		hubungan sebab akibat dari suastu situasi</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		3</td>
+		<td class="auto-style10" colspan="3">Logik Berfikir</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan untuk mengorganisir proses berfikir yang menunjukkan adanya 
+		alur berfikir yang sistematis dan logis</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		4</td>
+		<td class="auto-style10" colspan="3">Kemampuan Belajar</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan menguasai dan meningkatkan pengetahuan dan ketrampilan kerja 
+		yang baru maupun yang telah dimiliki</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="41" style="height: 30.75pt; width: 19pt;">
+		5</td>
+		<td class="auto-style10" colspan="3">Emotional Quotient</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kecerdasan Emosional, yakni keluasan pengetahuan dan kemampuan mengelola 
+		emosi secara optimal</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="21" style="mso-height-source:userset;height:15.75pt">
+		<td class="auto-style6" height="41" style="height: 30.75pt; width: 25px;">
+		B</td>
+		<td class="auto-style7" colspan="17">ASPEK SIKAP KERJA</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style8" height="201" rowspan="5" style="height: 150.75pt; width: 25px;">
+		&nbsp;</td>
+		<td class="auto-style9" style="width: 19pt">1</td>
+		<td class="auto-style10" colspan="3">Sistematika Kerja</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan dan ketrampilan menyelesaikan suatu tugas secara runut, 
+		proporsional, sesuai dengan skala prioritas tertentu</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		2</td>
+		<td class="auto-style10" colspan="3">Tempo Kerja</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kecepatan dan kecekatan kerja, yang menunjukkan kemampuan menyelesaikan 
+		sejumlah tugas dalam batas waktu tertentu<span style="mso-spacerun:yes">&nbsp;</span></td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		3</td>
+		<td class="auto-style10" colspan="3">Ketelitian</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan bekerja dengan sesedikit mungkin melakukan kesalahan atau 
+		kekeliruan</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="auto-style9" style="height: 30pt; width: 19pt;">4</td>
+		<td class="auto-style10" colspan="3" style="height: 30pt">Ketekunan</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt; height: 30pt;" width="332">
+		Daya tahan menghadapi dan menyelesaikan tugas sampai tuntas dalam waktu 
+		relatif lama dengan mencapai hasil yang optimal</td>
+		<td class="auto-style12" style="height: 30pt"></td>
+		<td class="auto-style12" style="height: 30pt"></td>
+		<td class="auto-style12" style="height: 30pt"></td>
+		<td class="auto-style13" style="height: 30pt"></td>
+		<td class="auto-style12" style="height: 30pt"></td>
+		<td class="auto-style12" style="height: 30pt"></td>
+		<td class="auto-style14" style="height: 30pt"></td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="41" style="height: 30.75pt; width: 19pt;">
+		5</td>
+		<td class="auto-style10" colspan="3">Komunikasi Efektif</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan menyampaikan pendapat secara lancar, sehingga pendengar paham 
+		dan bersedia mengikuti pendapatnya</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="21" style="mso-height-source:userset;height:15.75pt">
+		<td class="auto-style6" height="41" style="height: 30.75pt; width: 25px;">
+		C</td>
+		<td class="auto-style7" colspan="17">ASPEK KEPRIBADIAN</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style8" height="201" rowspan="5" style="height: 150.75pt; width: 25px;">
+		&nbsp;</td>
+		<td class="auto-style9" style="width: 19pt">1</td>
+		<td class="auto-style10" colspan="3">Motivasi</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Keinginan meningkatkan hasil kerja dan selalu berfokus pada profit 
+		opportunities</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		2</td>
+		<td class="auto-style10" colspan="3">Konsep Diri</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Pemahaman atas kelebihan dan kekurangan diri sendiri</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		3</td>
+		<td class="auto-style10" colspan="3">Empati</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan memahami dan merasakan adanya permasalahan dan kondisi 
+		emosional orang lain</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="40" style="height: 30.0pt; width: 19pt;">
+		4</td>
+		<td class="auto-style10" colspan="3">Pemahaman Sosial</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan bereaksi dengan cepat terhadap kebutuhan orang lain atau 
+		tuntutan lingkungan, serta memahami norma sosial yang berlaku.</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style15">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="20" style="height:15.0pt">
+		<td class="auto-style9" height="41" style="height: 30.75pt; width: 19pt;">
+		5</td>
+		<td class="auto-style10" colspan="3">Pengaturan Diri</td>
+		<td class="auto-style11" colspan="6" style="width: 249pt" width="332">
+		Kemampuan mengendalikan diri dalam situasi-situasi sulit dan kemampuan 
+		melakukan perencanaan sebelum bertindak.<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;</span></td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style13">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style12">&nbsp;</td>
+		<td class="auto-style14">&nbsp;</td>
+	</tr>
+	<tr height="21" style="height:15.75pt">
+		<td class="auto-style18" colspan="11" height="42" style="height: 31.5pt; width: 333pt" width="444">
+		TOTAL SKOR<span style="mso-spacerun:yes">&nbsp;&nbsp; </span><font class="font5">.</font></td>
+		<td class="auto-style2" colspan="7">0</td>
+	</tr>
+</table>
+
+<hr/>
+<h3 align="center">DIAGRAM KOMPETENSI</h3>
+<hr/> 
+
+    <div class="radarChart" style="float:left; background-image: url('/images/Psikogram.png'); background-repeat: no-repeat;background-size: 500px 540px;"></div>
+
+    <div id="chart_div" style="width: 600px; height: 600px; float:right"></div>
+   
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart'], 'language': 'id'});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Potensi', 'Kompetensi'],
+          [ 69,      77],
+
+        ]);
+
+        var options = {
+          title: 'Gambaran Posisi 9-Cell (Kompetensi dan Potensi)',
+          hAxis: {title: 'Potensi', minValue: 0, maxValue: 100,gridlines:{color: '#333', count: 7}},
+          vAxis: {title: 'Kompetensi', minValue: 0, maxValue: 100, gridlines:{color: '#333', count: 7}},
+          crosshair: { trigger: 'both' },
+          legend: 'none',
+          //vAxis.gridlines:{color: '#333', count: 4}
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+<?php
+
+$this->registerCss("
+
+	    input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #ffa500;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }");
+
+$this->registerJsFile('https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js',['position' => \yii\web\View::POS_HEAD]);
+$this->registerJsFile('@web/js/radarChart.js',['position' => \yii\web\View::POS_HEAD]);
+$this->registerJs(
+"var margin = {top: 80, right: 75, bottom: 150, left: 80},
+width = Math.min(500, window.innerWidth - 10) - margin.left - margin.right,
+height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+    
+    var data = [
+      [
+        {axis:'',value:4},
+        {axis:'',value:3},
+        {axis:'',value:4},
+        {axis:'',value:4},
+        {axis:'',value:3},
+        {axis:'',value:4},
+        {axis:'',value:4},
+        {axis:'',value:4},      
+        {axis:'',value:4},      
+        {axis:'',value:4},          
+      ],[
+        {axis:'',value:3},
+        {axis:'',value:4},
+        {axis:'',value:4},
+        {axis:'',value:4},
+        {axis:'',value:5},
+        {axis:'',value:2},
+        {axis:'',value:4},
+        {axis:'',value:3},      
+        {axis:'',value:4},      
+        {axis:'',value:4},      
+      ]
+    ];
+
+
+var color = d3.scale.ordinal()
+.range(['#00A0B0','#CC333F']);
+
+var radarChartOptions = {
+w: width,
+h: height,
+margin: margin,
+maxValue: 5,
+levels: 5,
+roundStrokes: true,
+color: color,
+opacityArea: 0.35,
+opacityCircles: 0,
+dotRadius: 6,
+strokeWidth: 1.5, 
+wrapWidth: 1,
+};
+
+RadarChart('.radarChart', data, radarChartOptions);"   ,
+    View::POS_READY,
+'ny-button-handler'
+);
+?>
+
+
+<head>
+<style type="text/css">
+
+</style>
+</head>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse:
+ collapse;width:539pt">
+	<colgroup>
+		<col span="1">
+		<col span="18" style="width:20pt" width="26">
+	</colgroup>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi1" colspan="12" height="20" style="height: 15.0pt; width: 240pt" width="312">
+		Kompetensi</td>
+		<td class="kompetensi1" colspan="2" style="width: 40pt" width="52">LKJ</td>
+		<td class="kompetensi2" colspan="2" style="width: 40pt" width="52">LKI</td>
+		<td class="kompetensi2" colspan="2" style="width: 40pt" width="52">GAP</td>
+		<td class="kompetensi2" colspan="2" style="width: 40pt" width="52">PCT</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi3" colspan="2" height="100" rowspan="5" style="height: 75.0pt; width: 154pt">
+		KOMPETENSI GENERIK</td>
+		<td class="kompetensi4" colspan="8">Integritas</td>
+		<td class="kompetensi5" colspan="2">INT</td>
+		<td class="kompetensi6" colspan="2">4</td>
+		<td class="kompetensi5" colspan="2">0</td>
+		<td class="kompetensi7" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-4</td>
+		<td class="kompetensi7" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi9" colspan="8" height="20" style="height: 15.0pt">
+		Berorientasi pada Pelayanan</td>
+		<td class="kompetensi10" colspan="2">BPL</td>
+		<td class="kompetensi11" colspan="2">4</td>
+		<td class="kompetensi10" colspan="2">0</td>
+		<td class="kompetensi12" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-4</td>
+		<td class="kompetensi7" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi9" colspan="8" height="20" style="height: 15.0pt">
+		Kerjasama untuk Sinergi</td>
+		<td class="kompetensi10" colspan="2">KSN</td>
+		<td class="kompetensi11" colspan="2">4</td>
+		<td class="kompetensi10" colspan="2">0</td>
+		<td class="kompetensi12" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-4</td>
+		<td class="kompetensi7" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi14" colspan="8" height="20" style="height: 15.0pt">
+		Profesionalitas</td>
+		<td class="kompetensi15" colspan="2">PFS</td>
+		<td class="kompetensi16" colspan="2">3</td>
+		<td class="kompetensi15" colspan="2">0</td>
+		<td class="kompetensi17" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi7" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi18" colspan="8" height="20" style="height: 15.0pt">
+		&nbsp;</td>
+		<td class="kompetensi19" colspan="2">&nbsp;</td>
+		<td class="kompetensi20" colspan="2">15</td>
+		<td class="kompetensi21" colspan="2">0</td>
+		<td class="kompetensi21" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-15</td>
+		<td class="kompetensi21" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi23" colspan="2" height="140" rowspan="7" style="height: 105.0pt; width: 154pt">
+		KOMPETENSI <br>SPESIFIK</td>
+		<td class="kompetensi24" colspan="8">Berfikir Strategis</td>
+		<td class="kompetensi25" colspan="2">BST</td>
+		<td class="kompetensi26" colspan="2">3</td>
+		<td class="kompetensi25" colspan="2">0</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi29" colspan="8" height="20" style="height: 15.0pt">
+		Berfikir Analitis</td>
+		<td class="kompetensi30" colspan="2">BAN</td>
+		<td class="kompetensi31" colspan="2">3</td>
+		<td class="kompetensi30" colspan="2">0</td>
+		<td class="kompetensi32" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi29" colspan="8" height="20" style="height: 15.0pt">
+		Berorientasi pada Kualitas</td>
+		<td class="kompetensi30" colspan="2">BKU</td>
+		<td class="kompetensi31" colspan="2">3</td>
+		<td class="kompetensi30" colspan="2">0</td>
+		<td class="kompetensi32" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi29" colspan="8" height="20" style="height: 15.0pt">
+		Komitmen terhadap Organisasi</td>
+		<td class="kompetensi30" colspan="2">KTO</td>
+		<td class="kompetensi31" colspan="2">3</td>
+		<td class="kompetensi30" colspan="2">0</td>
+		<td class="kompetensi32" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi29" colspan="8" height="20" style="height: 15.0pt">
+		Perencanaan &amp; Pengorganisasian</td>
+		<td class="kompetensi30" colspan="2">PPO</td>
+		<td class="kompetensi31" colspan="2">3</td>
+		<td class="kompetensi30" colspan="2">0</td>
+		<td class="kompetensi32" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-3</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi34" colspan="8" height="20" style="height: 15.0pt">
+		Kepemimpinan Transformatif</td>
+		<td class="kompetensi35" colspan="2">KPT</td>
+		<td class="kompetensi36" colspan="2">4</td>
+		<td class="kompetensi35" colspan="2">0</td>
+		<td class="kompetensi37" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-4</td>
+		<td class="kompetensi27" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi39" colspan="8" height="20" style="height: 15.0pt">
+		&nbsp;</td>
+		<td class="kompetensi40" colspan="2">&nbsp;</td>
+		<td class="kompetensi41" colspan="2">19</td>
+		<td class="kompetensi42" colspan="2">0</td>
+		<td class="kompetensi42" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-19</td>
+		<td class="kompetensi42" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+	<tr height="20" style="mso-height-source:userset;height:15.0pt">
+		<td class="kompetensi44" colspan="2" height="20" style="height: 15.0pt; width: 154pt;">
+		&nbsp;</td>
+		<td class="kompetensi45" colspan="8">&nbsp;</td>
+		<td class="kompetensi45" colspan="2">TOTAL</td>
+		<td class="kompetensi46" colspan="2">34</td>
+		<td class="kompetensi47" colspan="2">0</td>
+		<td class="kompetensi47" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		-34</td>
+		<td class="kompetensi47" colspan="2" style="text-underline-style: none; text-line-through: none; mso-pattern: black none">
+		0%</td>
+	</tr>
+</table>
+
+<br/>
+<?php
+//echo '<pre>';
+//print_r($data);
+$colorPluginOptions =  [
+    'showPalette' => true,
+    'showPaletteOnly' => true,
+    'showSelectionPalette' => true,
+    'showAlpha' => false,
+    'allowEmpty' => false,
+    'preferredFormat' => 'name',
+    'palette' => [
+        [
+            "white", "black", "grey", "silver", "gold", "brown", 
+        ],
+        [
+            "red", "orange", "yellow", "indigo", "maroon", "pink"
+        ],
+        [
+            "blue", "green", "violet", "cyan", "magenta", "purple", 
+        ],
+    ]
+];
+
+
+$gridColumns = [
+
+  //'project_assessment_id',
+  [
+    'label' => 'Kategori',
+    'value' => function($data) use ($catalog_id){
+  		$lkj = CatalogMeta::find()
+  		->andWhere(['catalog_id' => $catalog_id])
+        ->andWhere(['type' => 'kompetensigram'])
+        ->andWhere(['key' => 'kompetensi'])
+        ->andWhere(['value' => $data->key])->One();
+  		return $lkj->attribute_2;
+    },
+
+  ],
+  [
+    'label' => 'Kompetensi',
+    'value' => function($data){
+        $deskripsi = RefAssessmentDictionary::find()
+        ->andWhere(['type' => 'kompetensigram'])
+        ->andWhere(['key' => 'kompetensi'])
+        ->andWhere(['value' => $data->key])->One();
+        return $deskripsi->attribute_1;
+    },
+
+  ],
+  [
+  	'label' => 'LKJ',
+  	'value' => function($data) use ($catalog_id) {
+  		$lkj = CatalogMeta::find()
+  		->andWhere(['catalog_id' => $catalog_id])
+        ->andWhere(['type' => 'kompetensigram'])
+        ->andWhere(['key' => 'kompetensi'])
+        ->andWhere(['value' => $data->key])->One();
+  		return $lkj->attribute_1;
+  	},
+  	'pageSummary' => true,
+  ],
+  [
+  	'label' => 'Skor Assessee (nanti di hide)',
+      	'pageSummary' => true,
+  	'value' => function($data) use ($catalog_id) {
+  		$assessmentmodel = ProjectAssessment::find()
+  		->andWhere(['activity_id' => $_GET['id']])
+        ->andWhere(['status' => 'active'])->One();
+        $resultmodel = ProjectAssessmentResult::find()
+        				->andWhere(['project_assessment_id' => $assessmentmodel->id])
+        				->andWhere(['type' => 'kompetensigram'])
+        				->andWhere(['key' => $data->key])->One();
+  		return $resultmodel->value;
+  	}
+  ],
+
+
+  [
+    'class'=>'kartik\grid\EditableColumn',
+    'label' => 'LKI',
+    'attribute'=>'value',
+    'format' => 'raw',
+    'value' => function($data) use ($catalog_id){
+
+$radiolistoptions = [1 => '1',2 => '2',3=>'3',4=>'4',5=>'5',6=>'6',7 => '7'];
+  		$assessmentmodel = ProjectAssessment::find()
+  		->andWhere(['activity_id' => $_GET['id']])
+        ->andWhere(['status' => 'active'])->One();
+        $resultmodel = ProjectAssessmentResult::find()
+        				->andWhere(['project_assessment_id' => $assessmentmodel->id])
+        				->andWhere(['type' => 'kompetensigram'])
+        				->andWhere(['key' => $data->key])->One();
+return Html::RadioList($data->key, $resultmodel->value, $radiolistoptions, [
+		'item' => function($index, $label, $name, $checked, $value)
+							{
+								return Html::Label(Html::Radio($name,$checked,['class' => 'lkj']) .' '. $label);
+							},
+							
+		
+		]);
+    },
+  
+    'vAlign'=>'middle',
+    'width'=>'210px',
+    'readonly'=>function($model, $key, $index, $widget) {
+      //  return (!$mail(to, subject, message)odel->status); // do not allow editing of inactive records
+        return;
+    },
+    'editableOptions'=> function ($model, $key, $index) use ($colorPluginOptions) {
+        return [
+          'formOptions'=>['action' => ['/projects/activity/editresult']], // point to the new action
+            'header'=>'Result', 
+            'size'=>'md',
+            'inputType'=>\kartik\editable\Editable::INPUT_RANGE,
+             //'data' => [0 => 'pass', 1 => 'fail', 2 => 'waived', 3 => 'todo'],
+            'options'=>[
+                    'html5Options' => ['min' => 1, 'max' => 7],
+            ],
+
+        'beforeInput' => function ($form, $widget) use ($model, $index) {
+          /*  echo $form->field($model, "publish_date")->widget(\kartik\widgets\DatePicker::classname(), [
+                'options' => ['id' => "publish_date_{$index}"]
+            ]);
+            */
+                echo 'Masukkan rating';
+        },
+
+
+            'afterInput'=>function ($form, $widget) use ($model, $index, $colorPluginOptions) {
+                /*return $form->field($model, "color")->widget(\kartik\widgets\ColorInput::classname(), [
+                    'showDefaultPalette'=>false,
+                    'options'=>['id'=>"color-{$index}"],
+                    'pluginOptions'=>$colorPluginOptions,
+                ]);
+                */
+
+return 'min = 1, max = 7';
+            }
+            
+        ];
+    }
+],
+
+  [
+  	'label' => 'Gap',
+    	'pageSummary' => true,
+  	'value' => function($data) use ($catalog_id) {
+
+  		$lkj = CatalogMeta::find()
+  		->andWhere(['catalog_id' => $catalog_id])
+        ->andWhere(['type' => 'kompetensigram'])
+        ->andWhere(['key' => 'kompetensi'])
+        ->andWhere(['value' => $data->key])->One();
+  		//return $lkj->attribute_1;
+
+  		$assessmentmodel = ProjectAssessment::find()
+  		->andWhere(['activity_id' => $_GET['id']])
+        ->andWhere(['status' => 'active'])->One();
+        $resultmodel = ProjectAssessmentResult::find()
+        				->andWhere(['project_assessment_id' => $assessmentmodel->id])
+        				->andWhere(['type' => 'kompetensigram'])
+        				->andWhere(['key' => $data->key])->One();
+  		return -1 * ($lkj->attribute_1 - $resultmodel->value);
+  	}
+  ],
+
+
+[
+    'label' => 'Pct (%)',
+ 	'pageSummary' => true,
+ 	'pageSummaryFunc' => GridView::F_AVG,
+  	'value' => function($data) use ($catalog_id) {
+
+  		$lkj = CatalogMeta::find()
+  		->andWhere(['catalog_id' => $catalog_id])
+        ->andWhere(['type' => 'kompetensigram'])
+        ->andWhere(['key' => 'kompetensi'])
+        ->andWhere(['value' => $data->key])->One();
+  		//return $lkj->attribute_1;
+
+  		$assessmentmodel = ProjectAssessment::find()
+  		->andWhere(['activity_id' => $_GET['id']])
+        ->andWhere(['status' => 'active'])->One();
+        $resultmodel = ProjectAssessmentResult::find()
+        				->andWhere(['project_assessment_id' => $assessmentmodel->id])
+        				->andWhere(['type' => 'kompetensigram'])
+        				->andWhere(['key' => $data->key])->One();
+	return round((($resultmodel->value / $lkj->attribute_1)  * 100),2);
+  	}
+],
+           
+/*'name',
+                        [
+                            'label' => 'Activity',
+                            'attribute' => 'id',
+                            'format' => 'raw',
+                            'value' => function($data){
+                                $link = Html::a($data->id, ['activity/view', 'id' => $data->id], ['class' => 'profile-link']);
+                                return $link;
+                            }
+                        ],
+                        [
+                            'label' => 'Jadwal',
+                            'value' => function($data)
+                            {
+                                $assessee_id_model = ProjectActivityMeta::find()
+                                ->andWhere(['project_activity_id' => $data->id])
+                                ->andWhere(['type' => 'schedule'])
+                                ->andWhere(['key' => 'scheduled'])->One();
+
+                                return isset($assessee_id_model->value) ? $assessee_id_model->value : null;
+
+                            }
+
+                        ],
+                          
+                        [
+                            'label' => 'Status',
+                            'format' => 'Raw',
+                        'value' => function($data)
+                            {
+                                $assessee_id_model = ProjectActivityMeta::find()
+                                ->andWhere(['project_activity_id' => $data->id])
+                                ->andWhere(['type' => 'assessment'])
+                                ->andWhere(['key' => 'status'])->One();
+
+return isset($assessee_id_model->value) ? $assessee_id_model->value : null;
+
+                            } 
+
+                        ], 
+                        */
+
+
+
+];
+
+
+
+echo GridView::widget([
+    'dataProvider'=> $dataProvider,
+    //'filterModel' => $searchModel,
+    'columns' => $gridColumns,
+    'responsive'=>true,
+        'pjax'=>true, // pjax is set to always true for this demo
+    'hover'=>true,
+    'showPageSummary' => true
+]);
+
+
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605
 ?>

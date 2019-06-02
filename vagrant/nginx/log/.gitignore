@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 # nginx logs
 backend-access.log
 backend-error.log
 frontend-access.log
+=======
+# nginx logs
+backend-access.log
+backend-error.log
+frontend-access.log
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605
 frontend-error.log

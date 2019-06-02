@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="edulab-default-index">
     <h1><?= $this->context->action->uniqueId ?></h1>
     <p>
@@ -10,3 +11,17 @@
         <code><?= __FILE__ ?></code>
     </p>
 </div>
+=======
+<div class="edulab-default-index">
+    <h1><?= $this->context->action->uniqueId ?></h1>
+    <p>
+        This is the view content for action "<?= $this->context->action->id ?>".
+        The action belongs to the controller "<?= get_class($this->context) ?>"
+        in the "<?= $this->context->module->id ?>" module.
+    </p>
+    <p>
+        You may customize this page by editing the following file:<br>
+        <code><?= __FILE__ ?></code>
+    </p>
+</div>
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605

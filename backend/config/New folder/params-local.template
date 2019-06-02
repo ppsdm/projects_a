@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 return [
     'adminEmail' => 'gamantha.adhiguna@gmail.com',
@@ -17,3 +18,24 @@ return [
 
     
 ];
+=======
+<?php
+return [
+    'adminEmail' => 'gamantha.adhiguna@gmail.com',
+<<<<<<< HEAD:backend/config/New folder/params-local.template
+    //'TAO_ROOT' => 'http://localhost:8090/gamantha/tao/',
+    //'TESTTAKER_ROOT' => 'pao.rdf#i148050249323737', 
+=======
+        'TAO_ROOT' => 'http://tao.siapngampus.com/',
+    'TESTTAKER_ROOT' => 'siapngampus.rdf#i148065297224717', 
+<<<<<<< HEAD
+>>>>>>> c7d3e64abd17f3194f1adc827d394f8134daa61b:frontend/config/params-local.php
+=======
+>>>>>>> origin/zennner-baru:frontend/config/params-local.php
+>>>>>>> origin/zennner-baru
+
+    
+
+    
+];
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605

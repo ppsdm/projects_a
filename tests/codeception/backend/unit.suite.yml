@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 # Codeception Test Suite Configuration
 
 # suite for unit (internal) tests.
 # RUN `build` COMMAND AFTER ADDING/REMOVING MODULES.
 
 class_name: UnitTester
+=======
+# Codeception Test Suite Configuration
+
+# suite for unit (internal) tests.
+# RUN `build` COMMAND AFTER ADDING/REMOVING MODULES.
+
+class_name: UnitTester
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 namespace: tests\codeception\console
 actor: Tester
 paths:
@@ -11,3 +12,18 @@ settings:
     colors: true
     memory_limit: 1024M
     log: true
+=======
+namespace: tests\codeception\console
+actor: Tester
+paths:
+    tests: .
+    log: _output
+    data: _data
+    helpers: _support
+settings:
+    bootstrap: _bootstrap.php
+    suite_class: \PHPUnit_Framework_TestSuite
+    colors: true
+    memory_limit: 1024M
+    log: true
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605

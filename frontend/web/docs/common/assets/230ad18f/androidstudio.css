@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Date: 24 Fev 2015
 Author: Pedro Oliveira <kanytu@gmail . com>
@@ -51,3 +52,58 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 .hljs-tag .hljs-value {
   color: #a5c261;
 }
+=======
+/*
+Date: 24 Fev 2015
+Author: Pedro Oliveira <kanytu@gmail . com>
+*/
+
+.hljs {
+  color: #a9b7c6;
+  background: #282b2e;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-number {
+  color: #6897BB;
+}
+
+.hljs-keyword,
+.hljs-deletion {
+  color: #cc7832;
+}
+
+.hljs-comment {
+  color: #808080;
+}
+
+.hljs-annotation {
+  color: #bbb529;
+}
+
+.hljs-string,
+.hljs-addition {
+  color: #6A8759;
+}
+
+.hljs-function .hljs-title,
+.hljs-change {
+  color: #ffc66d;
+}
+
+.hljs-tag .hljs-title,
+.hljs-doctype {
+  color: #e8bf6a;
+}
+
+.hljs-tag .hljs-attribute {
+  color: #bababa;
+}
+
+.hljs-tag .hljs-value {
+  color: #a5c261;
+}
+>>>>>>> 26e6a9027d9982bca5d190bccaede4466456a605
